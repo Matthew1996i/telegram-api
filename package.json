@@ -1,0 +1,31 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon --trace-warnings src/server.js",
+    "pd": "pm2 start server.js --name=api"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "dotenv": "^8.2.0",
+    "node-telegram-bot-api": "^0.61.0",
+    "pg": "^8.7.3",
+    "puppeteer": "^19.7.1",
+    "randomstring": "^1.2.1",
+    "sequelize": "^6.9.0",
+    "sequelize-cli": "^6.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "nodemon": "^2.0.12"
+  },
+  "keywords": [],
+  "author": "",
+  "description": ""
+}
