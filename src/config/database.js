@@ -1,4 +1,4 @@
-require("dotenv/config");
+require('dotenv/config');
 
 module.exports = {
   dialect: process.env.DIALECT,
@@ -12,4 +12,5 @@ module.exports = {
     underscored: true,
   },
   timezone: '-03:00',
+  query: { raw: true },
 };

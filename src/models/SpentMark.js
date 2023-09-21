@@ -1,19 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Spent extends Model {
+class SpentMark extends Model {
   static init(connection) {
     super.init(
       {
-        place_name: DataTypes.STRING,
         user_id: DataTypes.INTEGER,
-        bill_value: DataTypes.FLOAT,
         mark: DataTypes.STRING,
         created_at: DataTypes.DATE,
         updated_at: DataTypes.DATE,
       },
       {
         sequelize: connection,
-        tableName: 'spent',
+        tableName: 'spent_marks',
       }
     );
   }
@@ -21,9 +19,9 @@ class Spent extends Model {
   static associate(models) {
     this.belongsTo(models.User, {
       foreignKey: 'user_id',
-      as: 'telegram_id_references',
+      as: 'spent_mark_user_id',
     });
   }
 }
 
-module.exports = Spent;
+module.exports = SpentMark;

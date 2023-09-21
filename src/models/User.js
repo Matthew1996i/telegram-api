@@ -5,6 +5,7 @@ class User extends Model {
     super.init(
       {
         telegram_id: DataTypes.STRING,
+        language_code: DataTypes.STRING,
         first_name: DataTypes.STRING,
         last_name: DataTypes.STRING,
         created_at: DataTypes.DATE,

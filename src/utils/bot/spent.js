@@ -1,13 +1,10 @@
-const path = require('path');
-const fs = require('fs');
-
+const { bot } = require('../../config/bot');
 const { spentController } = require('../../controllers');
 
-const { createCalendar } = require('../../helpers/botCalendar');
 const { getYears, getMonths } = require('../../helpers/periode-dates');
 
 module.exports = {
-  async add(bot, msg) {
+  async add(msg) {
     try {
       const { chat, from } = msg;
 
@@ -54,14 +51,17 @@ module.exports = {
                     ],
                     [
                       { text: 'FastFood', callback_data: 'FastFood' },
-                      { text: 'Cabelereiro', callback_data: 'Cabelereiro' },
+                      {
+                        text: 'Salão de Beleza',
+                        callback_data: 'Salão de Beleza',
+                      },
                     ],
                     [
                       {
                         text: 'Deposito de Material',
                         callback_data: 'Deposito de Material',
                       },
-                      { text: 'Outros', callback_data: 'Outros' },
+                      { text: 'Outros', callback_data: 'other' },
                     ],
                   ],
                   one_time_keyboard: true,
@@ -119,10 +119,11 @@ module.exports = {
       throw new Error(err);
     }
   },
-  async show(bot, msg) {
+  async exportData(msg) {
     try {
       const { chat } = msg;
       const chatId = chat.id;
+
       const data = {
         year: '',
         month: '',
@@ -175,14 +176,7 @@ module.exports = {
 
             data.month = query.data;
 
-            const filePath = path.resolve(
-              __dirname,
-              '../../files/document.xlsx'
-            );
-
-            bot.sendDocument(chatId, filePath, {
-              disable_web_page_preview: true,
-            });
+            await spentController.excelJson(msg, data);
           });
         }
       });

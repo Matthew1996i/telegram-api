@@ -2,26 +2,21 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('spent_marks', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      telegram_id: {
-        type: Sequelize.STRING,
+      user_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
-      first_name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      last_name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      language_code: {
+      mark: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -36,7 +31,7 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users');
+  down: async (queryInterface) => {
+    await queryInterface.dropTable('spent_marks');
   },
 };

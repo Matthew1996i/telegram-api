@@ -1,6 +1,7 @@
+const { bot } = require('../../config/bot');
 const { userController } = require('../../controllers');
 
-async function singUp(bot, msg) {
+async function singUp(msg) {
   try {
     const chatId = msg.chat.id;
     const from = msg.from;

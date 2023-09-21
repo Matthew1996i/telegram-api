@@ -1,4 +1,6 @@
-function verifyStatus(bot, msg) {
+const { bot } = require('../../config/bot');
+
+function verifyStatus(msg) {
   try {
     const chatId = msg.chat.id;
 

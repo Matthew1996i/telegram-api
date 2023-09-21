@@ -17,7 +17,9 @@
     "puppeteer": "^19.7.1",
     "randomstring": "^1.2.1",
     "sequelize": "^6.9.0",
-    "sequelize-cli": "^6.3.0"
+    "sequelize-cli": "^6.3.0",
+    "xlsx": "^0.18.5",
+    "xlsx-writestream": "^0.5.1"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
