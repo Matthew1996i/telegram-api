@@ -3,7 +3,7 @@ require('./database');
 const { verifyStatus } = require('./utils/bot/status');
 const { singUp } = require('./utils/bot/singup');
 const { add, exportData } = require('./utils/bot/spent');
-const { tags } = require('./utils/bot/tags');
+const { tags } = require('./utils/bot/tags/tags');
 const { welcomeMessage } = require('./helpers/messages');
 const { bot } = require('./config/bot');
 const { privateRouter } = require('./auth');
